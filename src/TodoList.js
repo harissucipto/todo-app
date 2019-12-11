@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TodoItem from './TodoItem'
 import StateContext from './StateContext';
 
-export default class TodoList extends React.Component {
-  static contextType = StateContext;
+export default function TodoList(props) {
+  const items = useContext(StateContext)
 
-  render() {
-    const items = this.context;
+  return items.map(item =>
+    <TodoItem {...item} key={item.id} {...props} />
+  )
 
-
-    return items.map(item =>
-      <TodoItem {...item} key={item.id} {...this.props} />
-    )
-  }
 }
