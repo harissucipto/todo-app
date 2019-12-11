@@ -13,9 +13,12 @@ export default function App() {
   const [state, dispatch] = useReducer(appReducer, { todos: [], filter: 'all' })
 
   useEffect(
-    fetchAPITodos().then((todos) =>
-      dispatch({ type: 'FETCH_TODOS', todos })
-    ), []
+    () => {
+      fetchAPITodos().then((todos) =>
+        dispatch({ type: 'FETCH_TODOS', todos })
+      )
+    }
+    , []
   )
 
   const filteredTodos = useMemo(
