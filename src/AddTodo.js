@@ -36,7 +36,7 @@ export default class AddTodo extends React.Component {
           this.handleAdd()
         }
       }>
-        <input type="text" placeholder="enter new task" style={{ width: 350, height: 15 }} value={input} onchange={this.handleInput} />
+        <input type="text" placeholder="enter new task" style={{ width: 350, height: 15 }} value={input} onChange={this.handleInput} />
         <input type="submit" style={{ float: 'right', marginTop: 2 }} value="add" disabled={!input} />
       </form>
     )
